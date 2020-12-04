@@ -1,0 +1,42 @@
+input[type="checkbox"] {
+  display: none;
+
+  &:checked + label {
+    #toggle {
+      background-color: var(--primary-color);
+
+      span {
+        transform: translate(24px, -50%);
+      }
+    }
+  }
+}
+
+label {
+  cursor: pointer;
+}
+
+#toggle {
+  width: 48px;
+  height: 16px;
+  position: relative;
+  border-radius: 18px;
+  transition: background-color 0.2s ease;
+  background-color: #c7c7c7;
+  span {
+    background-color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    box-shadow: 2px 6px 25px #868686;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+}
+
+#label-text {
+  transform: translateY(2px);
+}

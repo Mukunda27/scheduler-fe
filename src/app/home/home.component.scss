@@ -1,0 +1,192 @@
+@import "../../custom-theme";
+
+$circle-color: #f8f7ff;
+
+#outer-container {
+  overflow-x: hidden;
+}
+
+#home-container {
+  width: 80%;
+  margin: 0 auto;
+
+  @include large {
+    width: 85%;
+  }
+
+  @include medium {
+    width: 90%;
+  }
+}
+
+a#brand {
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+  color: black;
+
+  #brand-text {
+    color: var(--primary-color);
+  }
+
+  @include medium {
+    font-size: 22px;
+  }
+}
+
+.custom-btn {
+  font-size: 18px;
+  border: 0;
+  font-weight: lighter;
+  border-radius: 5px;
+  background-color: white;
+
+  &:focus,
+  &:hover {
+    transform: translateX(1px);
+    outline: none;
+  }
+
+  @include medium {
+    font-size: 16px;
+  }
+}
+
+#login-btn {
+  border: 2px solid var(--primary-color);
+}
+
+#signup-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#hero-section {
+  padding: 40px 0 0 0;
+  position: relative;
+  #hero-title {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+
+    @include font-size(1.85rem);
+
+    #brand-name {
+      position: relative;
+      transition: color 0.25s ease-in;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 10px;
+        border-radius: 20px;
+        background-color: var(--primary-color);
+        left: -20px;
+        top: 0;
+        z-index: -99;
+        transition: width 0.25s ease-in;
+      }
+    }
+  }
+
+  #hero-content {
+    @include font-size(1.25rem);
+  }
+
+  #hero-title:hover {
+    #brand-name {
+      color: white;
+      &::before {
+        width: calc(100% + 27px);
+      }
+    }
+  }
+
+  #get-started-btn {
+    width: 60%;
+    background-color: var(--primary-color);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      border: 2px solid var(--accent-color);
+      top: 4px;
+      left: 4px;
+      z-index: -99;
+    }
+  }
+
+  #hero-image {
+    img {
+      width: 90%;
+      object-fit: contain;
+    }
+  }
+
+  #circle {
+    position: absolute;
+    border-radius: 150px;
+    left: -25%;
+    top: 80%;
+    width: 300px;
+    height: 300px;
+    z-index: -99;
+    background-color: $circle-color;
+  }
+}
+
+#features {
+  width: 90%;
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+
+  @include large {
+    width: 100%;
+  }
+
+  @include medium {
+    width: 60%;
+  }
+
+  @include small {
+    width: 90%;
+  }
+
+  .feature-title {
+    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    @include large {
+      font-size: 16px;
+    }
+  }
+
+  .feature-description {
+    @include large {
+      font-size: 14px;
+    }
+  }
+
+  #polka-dot {
+    width: 500px;
+    height: 70px;
+    bottom: -40px;
+    left: 90%;
+    position: absolute;
+    z-index: -99;
+    background-color: #faffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23eb9c0a' fill-opacity='0.80' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}

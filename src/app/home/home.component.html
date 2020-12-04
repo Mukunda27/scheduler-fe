@@ -1,0 +1,104 @@
+<div id="outer-container" class="h-100">
+  <div id="home-container" class="d-flex flex-column h-100">
+    <div
+      id="header"
+      class="py-4 d-flex align-items-center justify-content-between"
+    >
+      <a href="" id="brand" class="d-flex align-items-center">
+        Meet
+        <div id="brand-text">UP</div>
+      </a>
+      <div class="btn-grp">
+        <button
+          id="login-btn"
+          class="custom-btn mr-3 p-1 px-sm-2"
+          [routerLink]="['/auth/login']"
+        >
+          Log In
+        </button>
+        <button
+          id="signup-btn"
+          class="custom-btn p-1 px-sm-2"
+          [routerLink]="['/auth/signup']"
+        >
+          Sign Up
+        </button>
+      </div>
+    </div>
+    <div
+      id="hero-section"
+      class="w-100 row mx-auto d-flex align-items-center flex-grow-1"
+    >
+      <div id="hero-text" class="col-10 col-xl-6">
+        <div id="hero-title">
+          <span id="brand-name">MeetUP</span>
+          helps you book meetings faster with smart scheduling
+        </div>
+        <div id="hero-content" class="my-4">
+          Be Productive. Spend less time on scheduling.
+        </div>
+        <div id="cta-btn">
+          <button
+            id="get-started-btn"
+            class="mr-3 py-2"
+            [routerLink]="['/auth/login']"
+          >
+            Get started <fa-icon [icon]="faChevronRight" class="ml-3"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="hero-image"
+        class="col-xl-6 justify-content-center d-none d-xl-block"
+      >
+        <img
+          src="assets/schedule.svg"
+          class="d-inline-block align-top mr-3"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+
+      <div id="circle"></div>
+    </div>
+    <div id="features" class="row row-cols-1 row-cols-md-3">
+      <div class="col text-center p-3">
+        <div class="feature-content p-2 p-xl-3 px-xl-5 h-100">
+          <div class="feature-title mb-3">
+            <fa-icon [icon]="faCalendarAlt" class="mr-3"></fa-icon>
+            Calendar Integrations
+          </div>
+          <div class="feature-description">
+            Works with your Google, Outlook, Office 365 or iCloud calendar so
+            you’re never double booked
+          </div>
+        </div>
+      </div>
+      <div class="col text-center p-3">
+        <div class="feature-content p-2 p-xl-3 px-xl-5 h-100">
+          <div class="feature-title mb-3">
+            <fa-icon [icon]="faGlobe" class="mr-3"></fa-icon>
+            Timezone Management
+          </div>
+          <div class="feature-description">
+            Seamless timezone detection for your invitees so everyone’s on the
+            same page
+          </div>
+        </div>
+      </div>
+      <div class="col text-center p-3">
+        <div class="feature-content p-2 p-xl-3 px-xl-5 h-100">
+          <div class="feature-title mb-3">
+            <fa-icon [icon]="faUsers" class="mr-3"></fa-icon>
+            Perfect for Teams
+          </div>
+          <div class="feature-description">
+            Works great for individuals, teams and departments
+          </div>
+        </div>
+      </div>
+      <div id="polka-dot"></div>
+    </div>
+  </div>
+</div>

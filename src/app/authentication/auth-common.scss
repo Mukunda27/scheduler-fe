@@ -1,0 +1,129 @@
+@import "../../_custom-theme.scss";
+
+#login-card {
+  padding: 5% 15%;
+
+  @include medium {
+    padding: 5% 10%;
+  }
+
+  @include small {
+    padding: 5% 5%;
+  }
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+button[type="submit"] {
+  letter-spacing: 1px;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color 0.25s ease-in;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: var(--primary-darker-color);
+  }
+}
+
+#progress-bar-1 {
+  display: inline-block;
+  position: absolute;
+  height: 4px;
+  border-radius: 15px;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-color);
+  animation: progressright 2s linear infinite;
+}
+
+#progress-bar-2 {
+  display: inline-block;
+  position: absolute;
+  height: 4px;
+  border-radius: 15px;
+  right: 0;
+  top: 0;
+  background-color: var(--primary-color);
+  animation: progressleft 2s linear infinite;
+}
+
+@keyframes progressright {
+  0% {
+    opacity: 1;
+    width: 0%;
+  }
+  50% {
+    opacity: 0;
+    width: 100%;
+  }
+
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+@keyframes progressleft {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+  50% {
+    opacity: 0;
+    width: 0%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+.input-grp {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  align-items: center;
+  border: none;
+  border-bottom: 2px solid #aaa;
+  transition: border 0.4s ease;
+
+  &:focus-within {
+    border-bottom: 2px solid var(--primary-color);
+  }
+
+  &.invalid {
+    border-bottom: 2px solid tomato;
+  }
+}
+
+.input-grp input {
+  width: 100%;
+  border-style: none;
+  background: transparent;
+  outline: none;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+span.error {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  color: tomato;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.mt-custom {
+  margin-top: 2rem;
+}

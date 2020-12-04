@@ -1,0 +1,413 @@
+<div id="home-container" class="d-flex flex-column h-100">
+  <div
+    id="header"
+    class="py-4 d-flex align-items-center justify-content-between"
+  >
+    <a href="" id="brand" class="d-flex align-items-center">
+      Meet
+      <div id="brand-text">UP</div>
+    </a>
+    <div class="btn-grp">
+      <button
+        id="login-btn"
+        class="custom-btn mr-3 p-1 px-sm-2"
+        [routerLink]="['/auth/login']"
+      >
+        Log In
+      </button>
+      <button
+        id="signup-btn"
+        class="custom-btn p-1 px-sm-2"
+        [routerLink]="['/auth/signup']"
+      >
+        Sign Up
+      </button>
+    </div>
+  </div>
+  <div id="auth-section" class="flex-grow-1 py-5">
+    <div id="form-container" class="row w-100 mx-auto h-100">
+      <div class="col-lg-6 col-12 px-0">
+        <router-outlet></router-outlet>
+      </div>
+      <div
+        id="custom-carousel"
+        class="col-6 h-100 w-100 overflow-hidden px-0 d-none d-lg-block"
+      >
+        <div class="outer-container h-100 d-flex w-100">
+          <div
+            class="inner-item position-relative flex-grow-1 flex-shrink-0 overflow-hidden"
+          >
+            <img
+              id="shape1"
+              class="position-absolute"
+              src="assets/shape-1.svg"
+              alt=""
+            />
+            <img
+              id="shape2"
+              class="position-absolute"
+              src="assets/shape-2.svg"
+              alt=""
+            />
+            <img
+              id="shape3"
+              class="position-absolute"
+              src="assets/shape-4.svg"
+              alt=""
+            />
+            <img
+              id="shape4"
+              class="position-absolute"
+              src="assets/shape-6.svg"
+              alt=""
+            />
+            <img
+              id="shape5"
+              class="position-absolute"
+              src="assets/shape-5.svg"
+              alt=""
+            />
+            <img
+              id="shape6"
+              class="position-absolute"
+              src="assets/shape-8.svg"
+              alt=""
+            />
+            <img
+              id="shape7"
+              class="position-absolute"
+              src="assets/shape-9.svg"
+              alt=""
+            />
+            <img
+              id="shape8"
+              class="position-absolute"
+              src="assets/shape-3.svg"
+              alt=""
+            />
+            <img
+              id="shape9"
+              class="position-absolute"
+              src="assets/shape-7.svg"
+              alt=""
+            />
+            <img
+              id="shape10"
+              class="position-absolute"
+              src="assets/shape-10.svg"
+              alt=""
+            />
+            <img
+              id="overlay-image"
+              src="assets/schedule.svg"
+              class="position-absolute"
+              alt=""
+            />
+            <span
+              id="caption"
+              class="d-flex flex-column position-absolute text-center"
+            >
+              <span id="caption-title" class="mb-2">Calendar Integrations</span>
+              <span id="caption-text"
+                >Works with your Google, Outlook, Office 365 or iCloud calendar
+                so you’re never double booked</span
+              >
+            </span>
+          </div>
+          <div
+            class="inner-item inner-item-dark position-relative flex-grow-1 flex-shrink-0 overflow-hidden"
+          >
+            <img
+              id="shape11"
+              class="position-absolute shape"
+              src="assets/shape-11.svg"
+              alt=""
+            />
+            <img
+              id="shape12"
+              class="position-absolute shape"
+              src="assets/shape-12.svg"
+              alt=""
+            />
+            <img
+              id="shape13"
+              class="position-absolute shape"
+              src="assets/shape-13.svg"
+              alt=""
+            />
+            <img
+              id="shape14"
+              class="position-absolute shape"
+              src="assets/shape-14.svg"
+              alt=""
+            />
+            <img
+              id="shape15"
+              class="position-absolute shape"
+              src="assets/shape-15.svg"
+              alt=""
+            />
+            <img
+              id="shape16"
+              class="position-absolute shape"
+              src="assets/shape-16.svg"
+              alt=""
+            />
+            <img
+              id="overlay-image"
+              src="assets/schedule.svg"
+              class="position-absolute"
+              alt=""
+            />
+            <span
+              id="caption"
+              class="d-flex flex-column position-absolute text-center"
+            >
+              <span id="caption-title" class="mb-2">Perfect for Teams </span>
+              <span id="caption-text">
+                Works great for individuals, teams and departments</span
+              >
+            </span>
+          </div>
+          <div
+            class="inner-item position-relative flex-grow-1 flex-shrink-0 overflow-hidden"
+          >
+            <img
+              id="shape1"
+              class="position-absolute shape1"
+              src="assets/shape-1.svg"
+              alt=""
+            />
+            <img
+              id="shape2"
+              class="position-absolute shape1"
+              src="assets/shape-2.svg"
+              alt=""
+            />
+            <img
+              id="shape3"
+              class="position-absolute shape1"
+              src="assets/shape-4.svg"
+              alt=""
+            />
+            <img
+              id="shape4"
+              class="position-absolute shape1"
+              src="assets/shape-6.svg"
+              alt=""
+            />
+            <img
+              id="shape5"
+              class="position-absolute shape1"
+              src="assets/shape-5.svg"
+              alt=""
+            />
+            <img
+              id="shape6"
+              class="position-absolute shape1"
+              src="assets/shape-8.svg"
+              alt=""
+            />
+            <img
+              id="shape7"
+              class="position-absolute shape1"
+              src="assets/shape-9.svg"
+              alt=""
+            />
+            <img
+              id="shape8"
+              class="position-absolute shape1"
+              src="assets/shape-3.svg"
+              alt=""
+            />
+            <img
+              id="shape9"
+              class="position-absolute shape1"
+              src="assets/shape-7.svg"
+              alt=""
+            />
+            <img
+              id="shape10"
+              class="position-absolute shape1"
+              src="assets/shape-10.svg"
+              alt=""
+            />
+            <img
+              id="overlay-image"
+              src="assets/schedule.svg"
+              class="position-absolute"
+              alt=""
+            />
+            <span
+              id="caption"
+              class="d-flex flex-column position-absolute text-center"
+            >
+              <span id="caption-title" class="mb-2">Calendar Integrations</span>
+              <span id="caption-text"
+                >Works with your Google, Outlook, Office 365 or iCloud calendar
+                so you’re never double booked</span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- <div
+        id="custom-carousel"
+        class="carousel slide col-6 h-100"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner h-100">
+          <div
+            class="carousel-item active position-relative"
+            data-interval="4000"
+          >
+            <img
+              id="shape1"
+              class="position-absolute"
+              src="assets/shape-1.svg"
+              alt=""
+            />
+            <img
+              id="shape2"
+              class="position-absolute"
+              src="assets/shape-2.svg"
+              alt=""
+            />
+
+            <img
+              id="shape3"
+              class="position-absolute"
+              src="assets/shape-4.svg"
+              alt=""
+            />
+
+            <img
+              id="shape4"
+              class="position-absolute"
+              src="assets/shape-6.svg"
+              alt=""
+            />
+
+            <img
+              id="shape5"
+              class="position-absolute"
+              src="assets/shape-5.svg"
+              alt=""
+            />
+
+            <img
+              id="shape6"
+              class="position-absolute"
+              src="assets/shape-8.svg"
+              alt=""
+            />
+
+            <img
+              id="shape7"
+              class="position-absolute"
+              src="assets/shape-9.svg"
+              alt=""
+            />
+
+            <img
+              id="shape8"
+              class="position-absolute"
+              src="assets/shape-3.svg"
+              alt=""
+            />
+
+            <img
+              id="shape9"
+              class="position-absolute"
+              src="assets/shape-7.svg"
+              alt=""
+            />
+            <img
+              id="shape10"
+              class="position-absolute"
+              src="assets/shape-10.svg"
+              alt=""
+            />
+            <img
+              id="overlay-image"
+              src="assets/schedule.svg"
+              class="position-absolute"
+              alt=""
+            />
+            <span
+              id="caption"
+              class="d-flex flex-column position-absolute text-center"
+            >
+              <span id="caption-title" class="mb-2">Calendar Integrations</span>
+              <span id="caption-text"
+                >Works with your Google, Outlook, Office 365 or iCloud calendar
+                so you’re never double booked</span
+              >
+            </span>
+          </div>
+          <div
+            class="carousel-item carousel-item-dark position-relative"
+            data-interval="4000"
+          >
+            <img
+              id="shape11"
+              class="position-absolute"
+              src="assets/shape-11.svg"
+              alt=""
+            />
+            <img
+              id="shape12"
+              class="position-absolute"
+              src="assets/shape-12.svg"
+              alt=""
+            />
+
+            <img
+              id="shape13"
+              class="position-absolute"
+              src="assets/shape-13.svg"
+              alt=""
+            />
+
+            <img
+              id="shape14"
+              class="position-absolute"
+              src="assets/shape-14.svg"
+              alt=""
+            />
+
+            <img
+              id="shape15"
+              class="position-absolute"
+              src="assets/shape-15.svg"
+              alt=""
+            />
+
+            <img
+              id="shape16"
+              class="position-absolute"
+              src="assets/shape-16.svg"
+              alt=""
+            />
+
+            <img
+              id="overlay-image"
+              src="assets/schedule.svg"
+              class="position-absolute"
+              alt=""
+            />
+            <span
+              id="caption"
+              class="d-flex flex-column position-absolute text-center"
+            >
+              <span id="caption-title" class="mb-2">Perfect for Teams </span>
+              <span id="caption-text">
+                Works great for individuals, teams and departments</span
+              >
+            </span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
