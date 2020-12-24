@@ -5,12 +5,14 @@
 >
   <fa-icon [icon]="faBell" [styles]="{ color: 'white' }" size="lg"></fa-icon>
   <span class="message ml-3">{{ message }}</span>
-  <fa-icon
-    [icon]="faTimes"
-    class="close"
-    [styles]="{ color: 'white' }"
-    (click)="closeMessage()"
-  ></fa-icon>
+  <div class="action">
+    <fa-icon
+      [icon]="faTimes"
+      class="close"
+      [styles]="{ color: 'white' }"
+      (click)="closeMessage()"
+    ></fa-icon>
+  </div>
 </div>
 
 <div
@@ -24,10 +26,41 @@
     size="lg"
   ></fa-icon>
   <span class="message ml-3">{{ error }}</span>
+  <div class="action">
+    <fa-icon
+      [icon]="faTimes"
+      class="close"
+      [styles]="{ color: 'white' }"
+      (click)="closeError()"
+    ></fa-icon>
+  </div>
+</div>
+
+<div
+  *ngIf="showReminder"
+  id="reminder-notification"
+  class="notification p-3 d-flex align-items-center"
+>
   <fa-icon
-    [icon]="faTimes"
-    class="close"
+    [icon]="faExclamationCircle"
     [styles]="{ color: 'white' }"
-    (click)="closeError()"
+    size="lg"
   ></fa-icon>
+  <span class="message ml-3">{{ reminder }}</span>
+  <div class="action d-flex align-items-center">
+    <img
+      src="assets/snooze.svg"
+      class="d-inline-block align-top"
+      (click)="snoozeReminder()"
+      alt=""
+      width="22"
+      height="22"
+    />
+    <fa-icon
+      [icon]="faTimes"
+      class="close ml-2"
+      [styles]="{ color: 'white' }"
+      (click)="closeReminder()"
+    ></fa-icon>
+  </div>
 </div>

@@ -4,10 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PlannerModule } from './planner/planner.module';
 
 
 const routes: Routes = [
   { path: 'auth', loadChildren: () => AuthenticationModule },
+  { path: 'planner', loadChildren: () => PlannerModule },
   { path: 'home', component: HomeComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

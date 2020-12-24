@@ -27,14 +27,17 @@ export class SocketService {
     });
 
     this.socket.on('online-users', (data: any) => {
-      console.log(data);
       this.allOnlineUsers = data;
       this.onlineUsers.next(this.allOnlineUsers);
     });
 
-    this.socket.on('status-changed', (message: string) => {
-      console.log('status changed');
+    this.socket.on('notify-meeting-created', (message: string) => {
       this.notificationService.showMessageNotification(message);
+    });
+
+    this.socket.on('meeting-reminder', (message: string) => {
+      console.log('meet reminder');
+      this.notificationService.showReminderNotification(message);
     });
   }
 
@@ -42,8 +45,9 @@ export class SocketService {
     this.socket.disconnect();
   }
 
-  taskStatusChange(message: string) {
-    this.socket.emit('status-change', message);
+  notifyMeeting(message: string, userID: string) {
+    const messageDetails = { message, userID };
+    this.socket.emit('meeting-created', messageDetails);
   }
 
   setUser(authToken: string) {

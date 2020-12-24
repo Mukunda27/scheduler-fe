@@ -1,0 +1,143 @@
+@import "../../../custom-theme";
+
+#outer-container {
+  width: 85vw;
+  margin: 0 auto;
+
+  @include medium {
+    width: 90vw;
+  }
+}
+
+#planner-section {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow-y: hidden;
+
+  #timeline {
+    border-radius: 10px;
+    flex-basis: 70%;
+    overflow-y: auto;
+
+    @include large {
+      overflow-y: initial;
+
+      order: 2;
+      flex-basis: auto;
+    }
+  }
+
+  #calendar {
+    flex-basis: 30%;
+
+    @include large {
+      order: 1;
+      flex-basis: auto;
+    }
+  }
+
+  @include large {
+    flex-direction: column;
+    overflow-y: initial;
+  }
+}
+
+#selected-date {
+  font-size: 1.25rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+#back-icon {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+#timeline::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+#timeline::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+
+#timeline::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #fff;
+  transition: background 1s ease !important;
+  -webkit-transition: background 1s ease !important;
+}
+
+#timeline:hover::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #ebe8fa;
+}
+
+.cal-current-time-marker {
+  height: 5px;
+  border-radius: 10px;
+  background: linear-gradient(270deg, #ec268d, #1f55dd);
+  background-size: 400% 400%;
+  animation: BackgroundFade 5s ease infinite;
+
+  @keyframes BackgroundFade {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+}
+
+.cal-event {
+  font-size: 13px;
+  line-height: 14px;
+  overflow-y: hidden;
+  font-weight: lighter;
+
+  .title {
+    font-size: 16px;
+    font-weight: lighter;
+  }
+}
+
+.event-top {
+  width: 5px;
+  height: 97%;
+  left: 2px;
+  top: 1.5%;
+
+  position: absolute;
+  border-radius: 10px;
+}
+
+button[type="button"] {
+  letter-spacing: 1px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color 0.25s ease-in;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: var(--primary-darker-color);
+  }
+
+  @include small {
+    font-size: 0.8rem;
+  }
+}

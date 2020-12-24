@@ -43,7 +43,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatSelectModule,
     FontAwesomeModule,
-    NotificationComponent
+    NotificationComponent,
   ]
 })
 export class SharedModule { }

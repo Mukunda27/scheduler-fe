@@ -15,7 +15,7 @@ $medium: 768px;
   transform: translateX(-50%);
   background-color: var(--primary-color);
   border-radius: 5px;
-  z-index: 1001;
+  z-index: 5000;
 }
 
 #message-notification {
@@ -40,8 +40,16 @@ $medium: 768px;
 
 .close {
   cursor: pointer;
+}
+
+.action {
+  cursor: pointer;
   margin-left: 75px;
   @include medium {
     margin-left: 25px;
+  }
+
+  img {
+    cursor: pointer;
   }
 }

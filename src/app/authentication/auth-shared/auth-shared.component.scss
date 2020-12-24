@@ -5,7 +5,6 @@ $circle-color: #f8f7ff;
 #home-container {
   width: 80%;
   margin: 0 auto;
-  background-color: #fafafa !important;
 
   @include large {
     width: 85%;
@@ -77,52 +76,56 @@ a#brand {
 #shape1 {
   top: -50px;
   left: 0;
+  width: 17%;
 }
-
 #shape2 {
-  top: 8%;
+  top: 5%;
   left: 10%;
+  width: 15%;
 }
 #shape3 {
   top: 5%;
   left: 35%;
+  width: 13%;
 }
 #shape4 {
   top: 8%;
   left: 60%;
+  width: 24%;
 }
-
 #shape5 {
   top: 25%;
   left: 15%;
+  width: 30%;
   z-index: 3;
 }
-
 #shape6 {
   top: 25%;
   left: -50px;
+  width: 40%;
   z-index: 1;
 }
-
 #shape7 {
-  width: 250px;
+  width: 40%;
   top: 10%;
   left: 14%;
   z-index: 2;
 }
-
 #shape8 {
   top: 40%;
   right: 5%;
+  width: 13%;
 }
 
 #shape9 {
   top: 40%;
   right: 5%;
+  width: 10%;
 }
 #shape10 {
   right: -20%;
   top: -25%;
+  width: 40%;
 }
 
 #overlay-image {
@@ -152,28 +155,34 @@ a#brand {
 #shape11 {
   right: -20%;
   top: 10%;
+  width: 40%;
 }
 
 #shape12 {
   top: -10%;
   left: 60%;
+  width: 28%;
 }
 #shape13 {
   top: 5%;
   left: 5%;
+  width: 25%;
 }
 #shape14 {
   left: -20%;
   top: 20%;
+  width: 38%;
 }
 
 #shape15 {
   left: 15%;
   top: 25%;
+  width: 50%;
 }
 
 #shape16 {
   top: 5%;
   left: 30%;
   z-index: 1;
+  width: 18%;
 }

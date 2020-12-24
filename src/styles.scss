@@ -1,4 +1,8 @@
+// CSS Reset, comment out if not required or using a different module
+@import "~minireset.css/minireset";
 @import "~@angular/material/theming";
+@import "~igniteui-angular/lib/core/styles/themes/index";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 // Light Theme Text
 $dark-text: #000000;
@@ -151,7 +155,7 @@ body {
 }
 
 body {
-  font-family: "Hind Madurai", "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 /* font-family: 'Exo', sans-serif;
@@ -220,4 +224,97 @@ ngx-intl-tel-input input::placeholder {
 
 ngx-intl-tel-input input[disabled] {
   background-color: #e5eaf1;
+}
+
+$primary: #0066cc !default;
+$secondary: #eb9c0a !default;
+$app-palette: igx-palette($primary, $secondary);
+
+@include igx-core();
+@include igx-theme($default-palette);
+
+$custom-calendar-theme: igx-calendar-theme(
+  $header-background: #0066cc,
+  $content-background: #f8f7ff,
+  $picker-background-color: #f8f7ff,
+  $header-text-color: #ffffff,
+  $date-current-text-color: #00478f,
+  $picker-arrow-color: #00478f,
+  $date-selected-text-color: #ffffff,
+  $date-current-bg-color: #f8f7ff,
+  $picker-arrow-hover-color: #00478f,
+  $year-current-text-color: #000,
+  $year-hover-text-color: #000,
+  $month-current-text-color: #000,
+  $month-hover-text-color: #000,
+  $picker-text-color: #00478f,
+  $picker-text-hover-color: #00478f,
+  $border-radius: 10px,
+);
+
+$my-time-picker-theme: igx-time-picker-theme(
+  $text-color: #000,
+  $hover-text-color: #000,
+  $selected-text-color: #000,
+  $header-background: #0066cc,
+  $header-hour-text-color: #fff,
+  $header-time-period-color: #fff,
+  $background-color: #f8f7ff,
+);
+
+$dark-button: igx-button-theme(
+  $flat-text-color: #00478f,
+  $flat-hover-background: #f8f7ff,
+);
+
+@include igx-time-picker($my-time-picker-theme);
+@include igx-css-vars($custom-calendar-theme);
+@include igx-button($dark-button);
+
+.igx-input-group__bundle,
+.igx-input-group__bundle:hover,
+.igx-input-group__bundle:focus {
+  box-shadow: none !important;
+  border-bottom: 2px solid #aaa !important;
+}
+
+.igx-input-group__bundle:focus-within {
+  border-bottom: 2px solid #0066cc !important;
+}
+
+.igx-input-group__bundle input {
+  font-size: 0.9rem !important;
+  line-height: 0.9rem !important;
+}
+
+.igx-input-group__bundle label {
+  font-size: 0.9rem !important;
+  line-height: 0.9rem !important;
+}
+.cal-week-view {
+  background-color: #f8f7ff !important;
+  border: none !important;
+  border-radius: 10px;
+}
+
+.cal-week-view .cal-hour-odd {
+  background-color: #f8f7ff !important;
+}
+
+.cal-week-view .cal-time {
+  font-family: "Nunito", sans-serif;
+  color: #00478f;
+  font-size: 13px;
+  padding-top: 5px;
+  width: 70px;
+  text-align: center;
+}
+
+.cal-hour-segment:hover {
+  background-color: #f8f7ff !important;
+}
+
+mwl-calendar-day-view * {
+  border-left: none;
+  outline: none;
 }

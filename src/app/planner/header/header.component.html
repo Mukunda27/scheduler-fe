@@ -1,0 +1,28 @@
+<div
+  id="header"
+  class="py-4 d-flex align-items-center justify-content-between position-relative"
+>
+  <a href="" id="brand" class="d-flex align-items-center">
+    Meet
+    <div id="brand-text">UP</div>
+  </a>
+  <div id="user-profile" class="d-flex align-items-center">
+    <img width="40" height="40" src="assets/user.svg" alt="" />
+    <div class="ml-3 d-none d-md-block">
+      <div id="user-name">{{ authenticatedUser?.name }}</div>
+      <span *ngIf="authenticatedUser?.admin"><em> Admin </em> </span>
+    </div>
+    <fa-icon [icon]="faChevronDown" class="ml-3"></fa-icon>
+    <div id="profile-menu">
+      <div id="name">{{ authenticatedUser?.name }}</div>
+      <div id="mail">{{ authenticatedUser?.email }}</div>
+      <span *ngIf="authenticatedUser?.admin"><em> Admin </em> </span>
+
+      <div class="divider my-3"></div>
+      <div class="d-flex align-items-center">
+        <fa-icon [icon]="faPowerOff" class="mr-3"></fa-icon>
+        <a href="#" (click)="logout()"> Log Out </a>
+      </div>
+    </div>
+  </div>
+</div>

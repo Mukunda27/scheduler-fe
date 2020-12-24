@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SocketService } from './socket.service';
 import { NotificationService } from './notification.service';
 import { environment } from '../environments/environment';
+import { map } from 'rxjs/operators';
 
 const BACKEND_URL = environment.apiUrl + 'user/';
 
@@ -14,7 +15,7 @@ const BACKEND_URL = environment.apiUrl + 'user/';
 })
 export class UserService {
   private isAuthenticated = false;
-  private authenticatedUser = new BehaviorSubject<User>(null);
+  authenticatedUser = new BehaviorSubject<User>(null);
   userCreationFailed = new Subject<void>();
   userLoginFailed = new Subject<void>();
   private tokenTimer: NodeJS.Timer;
@@ -29,10 +30,6 @@ export class UserService {
     return this.isAuthenticated;
   }
 
-  observeAuthenticationStatus() {
-    return this.authenticatedUser.asObservable();
-  }
-
   autoLogin() {
     const authenticationInformation = this.fetchAuthenticationToken();
     if (!authenticationInformation.token ||
@@ -45,15 +42,11 @@ export class UserService {
     if (expiresIn > 0) {
       this.httpClient.get<{ name: string, userID: string, email: string, admin: boolean }>
         (BACKEND_URL + authenticationInformation.userID).subscribe(response => {
+          console.log(response);
           this.handleUserAuthentication(response.name, response.userID,
             response.email, response.admin, authenticationInformation.token, expiresIn / 1000);
         }, error => {
-          this.userLoginFailed.next();
-          let errorMessage = 'Something is broken. Try again after some time';
-          if (error.error.message) {
-            errorMessage = error.error.message;
-          }
-          this.notificationService.showErrorNotification(errorMessage);
+          console.log(error);
         });
     }
   }
@@ -92,6 +85,7 @@ export class UserService {
       });
   }
 
+
   passwordResetRequest(email: string) {
     const resetDetails = { email };
     return this.httpClient.post<{ message: string, resetEmail: string }>
@@ -123,17 +117,21 @@ export class UserService {
 
   private handleUserAuthentication(name: string, userID: string, email: string, admin: boolean, token: string, expiresIn: number) {
     this.isAuthenticated = true;
-    const authenticatedUser: User = { name, email, userID, admin };
+    const loggedInUser: User = { name, email, userID, admin };
 
     this.socketService.setupSocketConnection(token);
     this.storeAuthenticationToken(userID, token, expiresIn);
 
     this.tokenTimer = setTimeout(() => {
-      this.logout(authenticatedUser);
+      this.logout(loggedInUser);
     }, expiresIn * 1000);
 
-    this.router.navigate(['/']);
-    this.authenticatedUser.next(authenticatedUser);
+    this.authenticatedUser.next(loggedInUser);
+    if (loggedInUser && loggedInUser.admin) {
+      this.router.navigate(['/planner/dashboard']);
+    } else {
+      this.router.navigate(['/planner/calendar', loggedInUser.userID]);
+    }
   }
 
   private goToSignIn() {

@@ -1,0 +1,189 @@
+@import "../../../custom-theme";
+
+#outer-container {
+  width: 85vw;
+  margin: 0 auto;
+
+  @include medium {
+    width: 90vw;
+  }
+}
+
+#planner-section {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow-y: hidden;
+
+  #users {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+
+    flex-basis: 70%;
+    overflow-y: auto;
+
+    @include large {
+      overflow-y: initial;
+
+      order: 2;
+      flex-basis: auto;
+    }
+  }
+
+  #calendar {
+    flex-basis: 30%;
+
+    @include large {
+      order: 1;
+      flex-basis: auto;
+    }
+  }
+
+  @include large {
+    flex-direction: column;
+    overflow-y: initial;
+  }
+}
+
+#selected-date {
+  font-size: 1.25rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+#users::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+#users::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+
+#users::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #fff;
+  transition: background 1s ease !important;
+  -webkit-transition: background 1s ease !important;
+}
+
+#users:hover::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #ebe8fa;
+}
+
+#users-card {
+  #name {
+    font-size: 16px;
+    font-weight: bold;
+
+    @include medium {
+      font-size: 14px;
+    }
+  }
+
+  #mail {
+    font-size: 14px;
+
+    @include medium {
+      font-size: 12px;
+    }
+  }
+}
+
+#online-indicator {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  transform: translateY(2px);
+}
+
+#progress-indicator {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(2% 0, 100% 0%, 98% 100%, 0% 100%);
+}
+
+#empty-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#inner-container {
+  position: relative;
+  height: 10px;
+}
+
+#schedule-btn {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#progress-bar-1 {
+  display: inline-block;
+  position: absolute;
+  height: 10px;
+  left: 0;
+  background-color: $primary;
+  animation: progressright 2s linear infinite;
+}
+
+#progress-bar-2 {
+  display: inline-block;
+  position: absolute;
+  height: 10px;
+
+  right: 0;
+  background-color: $primary;
+  animation: progressleft 2s linear infinite;
+}
+
+@keyframes progressright {
+  0% {
+    opacity: 1;
+    width: 0%;
+  }
+  50% {
+    opacity: 0;
+    width: 100%;
+  }
+
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+@keyframes progressleft {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+  50% {
+    opacity: 0;
+    width: 0%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}

@@ -1,1 +1,67 @@
-<p>dashboard works!</p>
+<div id="outer-container" class="h-100 d-flex flex-column">
+  <div id="header-section">
+    <app-header> </app-header>
+  </div>
+  <div class="mb-4">
+    <div id="selected-date">
+      {{ selectedDate | date: "fullDate" }}
+    </div>
+  </div>
+  <div id="planner-section" class="mb-5">
+    <div id="users" class="p-lg-5 p-0">
+      <div class="h-100 position-relative">
+        <div *ngIf="fetching" id="progress-indicator">
+          <div id="inner-container" class="w-100">
+            <span id="progress-bar-1"></span>
+            <span id="progress-bar-2"></span>
+          </div>
+        </div>
+        <div *ngIf="!fetching && users.length === 0" id="empty-list">
+          Ohh! There is no one out there for scheduling meetings. Come back
+          later.
+        </div>
+        <div *ngIf="!fetching && users.length > 0" id="users-card">
+          <div
+            *ngFor="let user of users"
+            class="d-flex justify-content-between align-items-center mb-4"
+          >
+            <div id="user-name" class="flex-grow-1 d-flex flex-column">
+              <div id="name">
+                {{ user.name }}
+                <span
+                  id="online-indicator"
+                  [ngStyle]="{
+                    'background-color': isOnline(user.userID) ? 'green' : '#bbb'
+                  }"
+                  class="ml-2"
+                ></span>
+              </div>
+              <div id="mail">{{ user.email }}</div>
+            </div>
+            <a
+              id="schedule-btn"
+              class="p-2 px-4"
+              [routerLink]="['/planner/calendar', user.userID]"
+            >
+              Schedule
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="calendar" class="pl-0 pl-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
+      <igx-calendar
+        #calendar
+        class="px-3"
+        [value]="selectedDate"
+        [hasHeader]="false"
+        [showWeekNumbers]="false"
+        [hideOutsideDays]="true"
+        [formatViews]="formatViews"
+        (onSelection)="onSelection($event)"
+      >
+        ></igx-calendar
+      >
+    </div>
+  </div>
+</div>
